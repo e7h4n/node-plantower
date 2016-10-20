@@ -36,16 +36,25 @@ plantower.read().then(console.log.bind(console)).catch(err => {
     count_pm_10: 0,
     formaldehyde: 0, // only in PMS5003S
     version: 0, // not in PMS5003S
-    erro: 0 // not in PMS5003S
+    error: 0 // not in PMS5003S
 }
 ```
 
 ## Supported Device Models
 
-* PMS5001
-* PMS5002
+* PMS1003
+* PMSA003
+* PMS6003
 * PMS5003
+* PMS5003I
+* PMS5003P
+* PMS3003
+* PMS5003T
+* PMS5003ST
 * PMS5003S
+* PMS7003
+* PMS7003M
+* PMS7003P
 
 ## License
 
