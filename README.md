@@ -34,7 +34,7 @@ formaldehyde:    0.006 mg/m^3
 ## Programming usage
 
 ```javascript
-const Plantower = require('./plantower');
+const Plantower = require('plantower');
 
 let plantower = new Plantower('PMS5003S', '/dev/ttyS0');
 
