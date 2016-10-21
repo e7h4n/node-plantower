@@ -15,14 +15,25 @@ Plantower.prototype.read = function () {
         let dataMap = device[this.model];
         let ret = {};
 
-        data.forEach((val, idx) => {
-            let key = dataMap[idx];
-            ret[key] = (ret[key] || 0) * 256 + val;
+        let index = 0;
+        dataMap.forEach((field) => {
+            let val = 0;
+            for (let j = 0; j < field.len; j++) {
+                val = val * 256 + data[index];
+                index++;
+            }
+            ret[field.key] = {
+                value: field.formatter ? field.formatter(val) : val,
+                unit: field.unit || null
+            };
         });
 
         if (ret.error) {
             return Promise.reject(ret.error);
         }
+
+        ret.model = this.model;
+        ret.timestamp = Date.now();
 
         return ret;
     });
