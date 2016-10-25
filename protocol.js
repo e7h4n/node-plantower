@@ -52,11 +52,15 @@ var Protocol = function (dev) {
 
     this.queue = [];
 
+    let openDefer = bluebird.defer();
     this.port.on('open', (err) => {
         if (err) {
-            throw err;
+            openDefer.reject(err);
+        } else {
+            openDefer.resolve();
         }
     });
+    this.openPromise = openDefer.promise;
 
     this.port.on('data', (data) => {
         debug('Get data', data);
@@ -71,6 +75,37 @@ Protocol.prototype.read = function () {
     var defer = bluebird.defer();
 
     this.queue.push(defer);
+
+    return defer.promise;
+};
+
+Protocol.prototype.write = function (data) {
+    let checksum = HEAD1 + HEAD2;
+    for (let i = 0; i < data.length; i++) {
+        checksum += data[i];
+    }
+
+    data = Buffer.concat([new Buffer([
+        HEAD1,
+        HEAD2,
+    ]), data, new Buffer([
+        Math.floor(checksum / 256),
+        checksum % 256
+    ])]);
+
+    var defer = bluebird.defer();
+
+    this.openPromise.then(() => {
+        debugTrans('TX', data);
+
+        this.port.write(data, (err) => {
+            if (err) {
+                defer.reject(err);
+            } else {
+                defer.resolve();
+            }
+        });
+    });
 
     return defer.promise;
 };
