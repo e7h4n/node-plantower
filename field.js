@@ -85,6 +85,22 @@ const FORMALDEHYDE = {
     len: 2
 };
 
+const CO2 = {
+    key: 'co2',
+    unit: 'ppm',
+    len: 2
+};
+
+const CO2_PARAMETER_1 = {
+    key: 'co2_parameter_1',
+    len: 2
+};
+
+const CO2_PARAMETER_2 = {
+    key: 'co2_parameter_2',
+    len: 2
+};
+
 const VERSION = {
     key: 'version'
 };
@@ -118,6 +134,11 @@ module.exports = {
     HUMIDITY: HUMIDITY,
 
     FORMALDEHYDE: FORMALDEHYDE,
+
+    CO2: CO2,
+    CO2_PARAMETER_1: CO2_PARAMETER_1,
+    CO2_PARAMETER_2: CO2_PARAMETER_2,
+
     VERSION: VERSION,
     ERROR: ERROR,
     RETAINED: RETAINED
