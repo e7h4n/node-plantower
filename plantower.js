@@ -40,8 +40,8 @@ Plantower.prototype.read = function () {
                 };
             });
 
-            if (ret.error) {
-                return Promise.reject(ret.error);
+            if (ret.error && ret.error.value !== 0) {
+                return Promise.reject(ret.error.value);
             }
 
             ret.model = this.model;
