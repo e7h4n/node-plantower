@@ -140,5 +140,25 @@ module.exports = {
             field.CO2_PARAMETER_1,
             field.CO2_PARAMETER_2
         ]
+    },
+    PTQS1005: {
+        defaultMode: 'passive',
+        requestData: new Buffer([
+            0xAB,
+            0x00,
+            0x00
+        ]),
+        responseMap: [
+            field.PARTICLE_CONCENTRATION_PM2_5_NORMAL,
+            field.TVOC,
+            field.TVOC_EQ,
+            field.FORMALDEHYDE,
+            field.FORMALDEHYDE_EQ,
+            field.CO2,
+            field.TEMPERATURE,
+            field.HUMIDITY,
+            field.RETAINED,
+            field.RETAINED
+        ]
     }
 };

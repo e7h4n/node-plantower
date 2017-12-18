@@ -120,6 +120,7 @@ Result example:
 * PMS7003M
 * PMS7003P
 * PMSA003
+* PTQS1005
 
 ## License
 

@@ -101,6 +101,21 @@ const CO2_PARAMETER_2 = {
     len: 2
 };
 
+const TVOC = {
+    key: 'tvoc',
+    len: 2
+};
+
+const TVOC_EQ = {
+    key: 'tvoc_eq',
+    len: 1
+};
+
+const FORMALDEHYDE_EQ = {
+    key: 'formaldehyde_eq',
+    len: 1
+};
+
 const VERSION = {
     key: 'version'
 };
