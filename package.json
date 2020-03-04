@@ -14,5 +14,6 @@
     "debug": "^4.1.1",
     "serialport": "^8.0.7",
     "yargs": "^15.1.0"
-  }
+  },
+  "repository": "https://github.com/perfectworks/node-plantower"
 }
